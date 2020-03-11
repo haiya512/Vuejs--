@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="message" placeholder="输入..." />
+			<p>输入的内容是：{{message}}</p>
+			<textarea v-model="text" placeholder="输入..."></textarea>
+			<p style="white-space: pre;">{{text}}</p>
+			<input type="text" @input="handleInput" placeholder="输入.." />
+			<p>输入的内容是: {{message}}</p>
+			
+			<input type="radio" :checked="picked" />
+			<label>单选按钮</label>
+			<br />
+			<input type="radio" v-model="picked1" value="html" id="html" />
+			<label for="html">HTML</label>
+			<br />
+			<input type="radio" v-model="picked1" value="js" id="js" />
+			<label for="js">JS</label>
+			<br />
+			<input type="radio" v-model="picked1" value="css" id="css" />
+			<label for="css">CSS</label>
+			<p>选择的项是：{{picked1}}</p>
+		</div>
+		<script>
+			var app = new Vue({
+				el: "#app",
+				data: {
+					message: '',
+					text: '',
+					picked: true,
+					picked1: 'js'
+				},
+				methods: {
+					handleInput: function(e){
+						this.message = e.target.value;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
